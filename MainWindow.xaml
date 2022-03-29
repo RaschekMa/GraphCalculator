@@ -1,0 +1,31 @@
+﻿<Window x:Class="GraphCalculator.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:GraphCalculator"
+        mc:Ignorable="d"
+        Title="GraphCalculator" Height="675" Width="1200" ResizeMode="NoResize">
+    <Window.Resources>
+        <Style TargetType="TextBlock">
+        </Style>
+    </Window.Resources>
+    <Grid Background="#FF212121">
+        <Button Content="Exit" HorizontalAlignment="Left" Margin="1090,599,0,0" VerticalAlignment="Top" Width="75" Click="BtnExitClick" Background="{x:Null}" Foreground="#FFD2D2D2"/>
+        <TextBox Name="AppConsole" HorizontalAlignment="Left" Height="584" Margin="690,10,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="475" IsReadOnly="True" Background="#FF212121" Foreground="#FFD2D2D2"/>
+        <Button Content="Clear" HorizontalAlignment="Left" Margin="690,599,0,0" VerticalAlignment="Top" Width="75" Click="BtnClearClick" Background="{x:Null}" Foreground="#FFD2D2D2"/>
+        <Button Content="Load CSV" HorizontalAlignment="Left" Margin="10,98,0,0" VerticalAlignment="Top" Width="75" Click="BtnCSVClick" Background="{x:Null}" Foreground="#FFD2D2D2" BorderBrush="#FF707070"/>
+        <Button Content="Random" HorizontalAlignment="Left" Margin="10,34,0,0" VerticalAlignment="Top" Width="75" Click="BtnRandomGraphClick" Background="{x:Null}" Foreground="#FFD2D2D2" BorderBrush="#FF707070"/>
+        <TextBox Name="FilePathBox" HorizontalAlignment="Left" Height="20" Margin="116,98,0,0" TextWrapping="Wrap" Text="C:\Users\Envy\source\repos\GraphCalculator\GraphCalculator\Files\Test.csv" VerticalAlignment="Top" Width="532" Background="{x:Null}" Foreground="#FFD2D2D2"/>
+        <TextBox Name="RandomNodes" HorizontalAlignment="Left" Height="20" Margin="116,34,0,0" TextWrapping="Wrap" Text="8" VerticalAlignment="Top" Width="55" TextAlignment="Center" Background="{x:Null}" Foreground="#FFD2D2D2" BorderBrush="#FFC8C8C8"/>
+        <TextBox Name="RandomChance" HorizontalAlignment="Left" Height="20" Margin="176,34,0,0" TextWrapping="Wrap" Text="50" VerticalAlignment="Top" Width="55" TextAlignment="Center" Background="{x:Null}" Foreground="#FFD2D2D2" BorderBrush="#FFC8C8C8" SelectionBrush="Black"/>
+        <TextBox Name="RandomNodesBox" HorizontalAlignment="Left" Height="20" Margin="116,14,0,0" TextWrapping="Wrap" Text="Nodes" VerticalAlignment="Top" Width="55" TextAlignment="Center" Background="{x:Null}" Foreground="#FFD2D2D2" BorderBrush="{x:Null}" IsReadOnly="True"/>
+        <TextBox Name="RandomChanceBox" HorizontalAlignment="Left" Height="20" Margin="176,14,0,0" TextWrapping="Wrap" Text="Chance" VerticalAlignment="Top" Width="55" TextAlignment="Center" Background="{x:Null}" Foreground="#FFD2D2D2" BorderBrush="{x:Null}" IsReadOnly="True"/>
+        <Button Content="Add Edge" HorizontalAlignment="Left" Margin="10,185,0,0" VerticalAlignment="Top" Width="90" Background="{x:Null}" Foreground="#FFD2D2D2" Click="BtnAddEdge"/>
+        <Button Content="Remove Edge" HorizontalAlignment="Left" Margin="115,185,0,0" VerticalAlignment="Top" Width="90" Background="{x:Null}" Foreground="#FFD2D2D2" Click="BtnRemoveEdge"/>
+        <TextBox Name="EdgeNodeA" HorizontalAlignment="Left" Height="20" Margin="10,215,0,0" TextWrapping="Wrap" Text="0" VerticalAlignment="Top" Width="55" TextAlignment="Center" Background="{x:Null}" Foreground="#FFD2D2D2" BorderBrush="#FFC8C8C8"/>
+        <TextBox Name="EdgeNodeB" HorizontalAlignment="Left" Height="20" Margin="75,215,0,0" TextWrapping="Wrap" Text="0" VerticalAlignment="Top" Width="55" TextAlignment="Center" Background="{x:Null}" Foreground="#FFD2D2D2" BorderBrush="#FFC8C8C8" SelectionBrush="Black"/>
+        <TextBox x:Name="Node" HorizontalAlignment="Left" Height="20" Margin="10,290,0,0" TextWrapping="Wrap" Text="0" VerticalAlignment="Top" Width="55" TextAlignment="Center" Background="{x:Null}" Foreground="#FFD2D2D2" BorderBrush="#FFC8C8C8"/>
+        <Button Content="Remove Node" HorizontalAlignment="Left" Margin="10,260,0,0" VerticalAlignment="Top" Width="90" Background="{x:Null}" Foreground="#FFD2D2D2" Click="BtnRemoveEdgesOfNode"/>
+    </Grid>
+</Window>

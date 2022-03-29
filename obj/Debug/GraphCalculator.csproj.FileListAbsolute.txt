@@ -1,0 +1,16 @@
+C:\Users\Envy\source\repos\GraphCalculator\GraphCalculator\bin\Debug\GraphCalculator.exe.config
+C:\Users\Envy\source\repos\GraphCalculator\GraphCalculator\bin\Debug\GraphCalculator.exe
+C:\Users\Envy\source\repos\GraphCalculator\GraphCalculator\bin\Debug\GraphCalculator.pdb
+C:\Users\Envy\source\repos\GraphCalculator\GraphCalculator\obj\Debug\MainWindow.g.cs
+C:\Users\Envy\source\repos\GraphCalculator\GraphCalculator\obj\Debug\App.g.cs
+C:\Users\Envy\source\repos\GraphCalculator\GraphCalculator\obj\Debug\GraphCalculator_MarkupCompile.cache
+C:\Users\Envy\source\repos\GraphCalculator\GraphCalculator\obj\Debug\GraphCalculator_MarkupCompile.lref
+C:\Users\Envy\source\repos\GraphCalculator\GraphCalculator\obj\Debug\MainWindow.baml
+C:\Users\Envy\source\repos\GraphCalculator\GraphCalculator\obj\Debug\GraphCalculator.g.resources
+C:\Users\Envy\source\repos\GraphCalculator\GraphCalculator\obj\Debug\GraphCalculator.Properties.Resources.resources
+C:\Users\Envy\source\repos\GraphCalculator\GraphCalculator\obj\Debug\GraphCalculator.csproj.GenerateResource.cache
+C:\Users\Envy\source\repos\GraphCalculator\GraphCalculator\obj\Debug\GraphCalculator.exe
+C:\Users\Envy\source\repos\GraphCalculator\GraphCalculator\obj\Debug\GraphCalculator.pdb
+C:\Users\Envy\source\repos\GraphCalculator\GraphCalculator\obj\Debug\GraphCalculator.csproj.CoreCompileInputs.cache
+C:\Users\Envy\source\repos\GraphCalculator\GraphCalculator\obj\Debug\GraphCalculator.csproj.AssemblyReference.cache
+C:\Users\Envy\source\repos\GraphCalculator\GraphCalculator\obj\Debug\GraphCalculator.csproj.SuggestedBindingRedirects.cache
