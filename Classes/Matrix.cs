@@ -184,6 +184,40 @@ namespace GraphenCalc
             return distance;
         }
 
+        //more legible but less performant
+        public int[,] NewDistanceMatrix()
+        {
+            int[,] distance = CopyMatrix(adjacency);
+            int[,] power = CopyMatrix(adjacency);
+
+            for (int i = 2; i < NodeCount; i++)
+            {
+                power = PowerMatrix(i);
+
+                distance = CalcDistanceMatrix(distance, power, i);
+            }
+
+            return distance;
+        }
+
+        public int[,] CalcDistanceMatrix(int[,] _matrix, int[,] _powermatrix, int power)
+        {
+            int[,] matrix = _matrix;
+
+            for (int i = 0; i < NodeCount; i++)
+            {
+                for (int j = 0; j < NodeCount; j++)
+                {
+                    if (_matrix[i, j] == 0 && _powermatrix[i, j] > 0 && i != j)
+                    {
+                        matrix[i, j] = power;
+                    }
+                }
+            }
+
+            return matrix;
+        }
+
         public int[,] PowerMatrix(int power)
         {
             int[,] powerm = CopyMatrix(GetAdjacency());

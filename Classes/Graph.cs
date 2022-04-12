@@ -10,7 +10,7 @@ namespace GraphenCalc.Classes
 {
     public class Graph
     {
-        private Matrix ma;        
+        private Matrix matrix;        
         private int edges;
         private int diameter;
         private int radius;
@@ -18,19 +18,20 @@ namespace GraphenCalc.Classes
         List<Tuple<int, int>> bridges = new List<Tuple<int, int>>();
         private List<int> center = new List<int>();
         private List<List<int>> components = new List<List<int>>();
+        
        
 
         //-------------------------------------------------------------------Constructors----------------------------------------------------------------------------------------------------------------------
 
         public Graph(string file)
         {
-            ma = new Matrix(file);
+            matrix = new Matrix(file);
             CalcAll();
         }
 
         public Graph(int node, int chance)
         {
-            ma = new Matrix(node, chance);
+            matrix = new Matrix(node, chance);
             CalcAll();
         }
 
@@ -38,19 +39,19 @@ namespace GraphenCalc.Classes
                 
         public int CountEdges()
         {
-            int number = 0;
+            int sum = 0;
 
-            if(ma.GetAdjacency() != null)
+            if(matrix.GetAdjacency() != null)
             {
-                for (int i = 0; i < ma.GetAdjacency().GetLength(0); i++)
+                for (int i = 0; i < matrix.GetAdjacency().GetLength(0); i++)
                 {
-                    for (int j = 0; j < ma.GetAdjacency().GetLength(1); j++)
+                    for (int j = 0; j < matrix.GetAdjacency().GetLength(1); j++)
                     {
-                        number += ma.GetAdjacency()[i, j];
+                        sum += matrix.GetAdjacency()[i, j];
                     }
                 }
-                number = number / 2;
-                return number;
+                sum = sum / 2;
+                return sum;
             }
             else
             {
@@ -58,13 +59,13 @@ namespace GraphenCalc.Classes
             }
         }
 
-        public List<int> Neighbors(int node, Matrix x)
+        public List<int> Neighbors(int _node, Matrix _matrix)
         {
             List<int> neighbors = new List<int>();
 
-            for (int i = 0; i < x.GetAdjacency().GetLength(0); i++)
+            for (int i = 0; i < _matrix.GetAdjacency().GetLength(0); i++)
             {
-                if(x.GetAdjacency()[node, i] == 1)
+                if(_matrix.GetAdjacency()[_node, i] == 1)
                 {
                     neighbors.Add(i);
                 }
@@ -77,13 +78,14 @@ namespace GraphenCalc.Classes
         {
             int eccent = 0;
 
-            for (int i = 0; i < ma.NodeCount; i++)
+            for (int i = 0; i < matrix.NodeCount; i++)
             {                
-                if(ma.GetDistance()[i, node] > eccent)
+                if(matrix.GetDistance()[i, node] > eccent)
                 {
-                    eccent = ma.GetDistance()[i, node];
+                    eccent = matrix.GetDistance()[i, node];
                 }
-                if(i != node && ma.GetDistance()[i, node] == 0)
+
+                if(i != node && matrix.GetDistance()[i, node] == 0)
                 {
                     eccent = -1;
                     break;
@@ -96,7 +98,7 @@ namespace GraphenCalc.Classes
         {
             int dia = 0;
 
-            for (int i = 0; i < ma.NodeCount; i++)
+            for (int i = 0; i < matrix.NodeCount; i++)
             {
                 if (Eccentricity(i) > dia)
                 {
@@ -113,9 +115,9 @@ namespace GraphenCalc.Classes
 
         public int Radius()
         {
-            int rad = ma.NodeCount;
+            int rad = matrix.NodeCount;
 
-            for (int i = 0; i < ma.NodeCount; i++)
+            for (int i = 0; i < matrix.NodeCount; i++)
             {
                 if (Eccentricity(i) < rad)
                 {
@@ -134,7 +136,7 @@ namespace GraphenCalc.Classes
         {
             List<int> centerlist = new List<int>();
 
-            for (int i = 0; i < ma.NodeCount; i++)
+            for (int i = 0; i < matrix.NodeCount; i++)
             {
                 if(Eccentricity(i) == radius)
                 {
@@ -148,9 +150,9 @@ namespace GraphenCalc.Classes
         {
             int edges = 0;
 
-            for (int k = 0; k < ma.GetAdjacency().GetLength(0); k++)
+            for (int k = 0; k < matrix.GetAdjacency().GetLength(0); k++)
             {
-                edges += ma.GetAdjacency()[i, k];
+                edges += matrix.GetAdjacency()[i, k];
             }
 
             return edges;
@@ -202,7 +204,7 @@ namespace GraphenCalc.Classes
         public List<List<int>> Components(Matrix x)
         {
             List<List<int>> component = new List<List<int>>();
-            List<int> nodelist = new List<int>(ma.GetNodes());
+            List<int> nodelist = new List<int>(matrix.GetNodes());
 
             while (nodelist.Count > 0)
             {
@@ -226,7 +228,7 @@ namespace GraphenCalc.Classes
             Stack<int> stack = new Stack<int>();
             stack.Push(start);
 
-            if(!ma.GetNodes().Contains(start))
+            if(!matrix.GetNodes().Contains(start))
             {
                 return visited;
             }
@@ -258,7 +260,7 @@ namespace GraphenCalc.Classes
 
         public Matrix GetMatrix()
         {
-            return ma;
+            return matrix;
         }
 
         public void CalcAll()
@@ -267,9 +269,9 @@ namespace GraphenCalc.Classes
             diameter = Diameter();
             radius = Radius();
             center = Center();
-            components = Components(ma);
-            articulations = Articulations(ma);
-            bridges = Bridges(ma);
+            components = Components(matrix);
+            articulations = Articulations(matrix);
+            bridges = Bridges(matrix);
         }
 
         //-------------------------------------------------------------------ToString/Print--------------------------------------------------------------------------------------------------------------------        
@@ -278,10 +280,10 @@ namespace GraphenCalc.Classes
         {
             StringBuilder sb = new StringBuilder();
 
-            if (ma.GetAdjacency() != null)
+            if (matrix.GetAdjacency() != null)
             {          
-                sb.AppendLine(ma.ToString());
-                sb.AppendLine("Nodecount: " + ma.GetNodes().Count);
+                sb.AppendLine(matrix.ToString());
+                sb.AppendLine("Nodecount: " + matrix.GetNodes().Count);
                 sb.AppendLine("Edgecount: " + edges);
                 sb.AppendLine("Diameter: " + diameter);
                 sb.AppendLine("Radius: " + radius);
